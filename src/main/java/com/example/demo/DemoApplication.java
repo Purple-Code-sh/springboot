@@ -7,11 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
     static void main(String[] args) {
-
         var ctx = SpringApplication.run(DemoApplication.class, args);
 
-        MyFirstClass myFirstImplementation = ctx.getBean("firstBean", MyFirstClass.class);
-        System.out.println(myFirstImplementation.sayHello());
+        MyFirstService myFirstServiceObject = ctx.getBean(MyFirstService.class);
+        System.out.println(myFirstServiceObject.tellAStory());
 	}
 
 }

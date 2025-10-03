@@ -6,8 +6,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ApplicationConfig {
-    @Bean("firstBean")
-    public MyFirstClass newFirstClassObject(){
-        return new MyFirstClass();
+
+    @Bean
+    public MyFirstClass myFirstClassObject(){
+        return new MyFirstClass("First Bean Created");
     }
 }

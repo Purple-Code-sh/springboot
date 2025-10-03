@@ -1,10 +1,14 @@
 package com.example.demo;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class MyFirstClass {
+
+    private final String myVar;
+
+    public MyFirstClass(String myVarParameter){
+        this.myVar = myVarParameter;
+    }
+
     public String sayHello(){
-        return "Hello world";
+        return "MyFirstClass is saying => myVar: " + myVar;
     }
 }
