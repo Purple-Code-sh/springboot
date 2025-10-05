@@ -7,12 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
     static void main(String[] args) {
-        var ctx = SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(DemoApplication.class);
 
-        MyFirstService myFirstServiceObject = ctx.getBean(MyFirstService.class);
-        System.out.println(myFirstServiceObject.tellAStory());
-        System.out.println(myFirstServiceObject.getJavaVersion());
-        System.out.println(myFirstServiceObject.getOSName());
 	}
 
 }
