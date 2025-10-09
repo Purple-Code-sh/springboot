@@ -1,10 +1,9 @@
 package com.example.demo;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class FirstController {
@@ -21,6 +20,19 @@ public class FirstController {
             Student student
     ){
         return studentRepository.save(student);
+    }
+
+    @GetMapping("/students")
+    public List<Student> findAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    @GetMapping("/students/{student-id}")
+    public Student findStudentById(
+            @PathVariable("student-id")
+            Integer id
+    ) {
+        return studentRepository.findById(id).orElse(new Student());
     }
 
 }
