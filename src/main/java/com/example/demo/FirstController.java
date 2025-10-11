@@ -35,12 +35,21 @@ public class FirstController {
         return studentRepository.findById(id).orElse(new Student());
     }
 
-    @GetMapping("/students/search/{student-id}")
+    @GetMapping("/students/search/{student-name}")
     public List<Student> findStudentByName(
-            @PathVariable("student-id")
+            @PathVariable("student-name")
             String name
     ) {
         return studentRepository.findByFirstnameContaining(name);
+    }
+
+    @DeleteMapping("/students/{student-id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void DeleteStudentById(
+            @PathVariable("student-id")
+            Integer id
+    ) {
+        studentRepository.deleteById(id);
     }
 
 }
