@@ -1,8 +1,6 @@
 package com.example.demo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class StudentProfile {
@@ -11,6 +9,12 @@ public class StudentProfile {
     Integer id;
 
     String bio;
+
+    @OneToOne
+    @JoinColumn(
+            name = "student_id"
+    )
+    private Student stud;
 
     public StudentProfile() {
     }
